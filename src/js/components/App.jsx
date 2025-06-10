@@ -16,6 +16,10 @@ function App() {
     const add_Todo_URL = 'https://playground.4geeks.com/todo/todos/dwanedunn';
       const response = await fetch(add_Todo_URL,{
         method='POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ label: newTodo, completed: false }),
        })
     }
 
