@@ -28,7 +28,9 @@ function App() {
     } finally {
     }
   }
-  useEffect;
+  useEffect(() => {
+    getApiTodos();
+  }, []);
 
   const toggleTodo = (index) => {
     const updatedTodos = todos.map((todo, i) =>
