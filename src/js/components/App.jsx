@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
 import { resolveConfig } from 'vite';
 
@@ -11,7 +11,7 @@ function App() {
     setNewTodo('');
   };
 
-  // Fetch the todos from api on load
+  // Fetch the user from api onload
 
   async function getUserfromApi() {
     // This is the URL to fetch the user data
