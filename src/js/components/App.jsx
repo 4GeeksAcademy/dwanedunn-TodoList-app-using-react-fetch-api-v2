@@ -31,7 +31,7 @@ function App() {
         });
       }
       const apiData = await response.json();
-      console.log(apiData);
+      // console.log(apiData);
       setTodos(apiData.todos || []);
     } catch (error) {
       console.log(error.message);
@@ -48,9 +48,9 @@ function App() {
     setTodos(updatedTodos);
   };
 
-  async function deleteTodo(todo_Id) {
+  async function deleteTodo(todo_id) {
     const response = await fetch(
-      `https://playground.4geeks.com/todo/users/dwanedunn/todos/${todo_Id}`,
+      `https://playground.4geeks.com/todo/users/dwanedunn/todos/${todo_id}`,
       {
         method: 'DELETE',
       }
