@@ -5,10 +5,24 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState('');
 
-  const addTodo = () => {
-    setTodos([...todos, { text: newTodo, completed: false }]);
+  // const addTodo = () => {
+  //   setTodos([...todos, { text: newTodo, completed: false }]);
+  //   setNewTodo('');
+
+  // };
+
+// Function to add a new todo item
+  async function addTodo() {
+    const add_Todo_URL = 'https://playground.4geeks.com/todo/todos/dwanedunn';
+      const response = await fetch(add_Todo_URL,{
+        method='POST',
+       })
+    }
+
+    const newTodoData = await response.json();
+    setTodos([...todos, newTodoData]);
     setNewTodo('');
-  };
+  }
 
   // Fetch the user from api onload
 
@@ -50,7 +64,7 @@ function App() {
 
   async function deleteTodo(todo_id) {
     const response = await fetch(
-      `https://playground.4geeks.com/todo/users/dwanedunn/todos/${todo_id}`,
+      `https://playground.4geeks.com/todo/todos/${todo_id}`,
       {
         method: 'DELETE',
       }
@@ -58,7 +72,7 @@ function App() {
     if (!response.ok) {
       console.log('Failed to delete todo');
     }
-    getUserfromApi;
+    getUserfromApi();
   }
 
   return (

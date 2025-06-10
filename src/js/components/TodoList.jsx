@@ -9,7 +9,7 @@ function TodoList({ todos, toggleTodo, deleteTodo }) {
           key={index}
           todo={todo}
           toggleTodo={() => toggleTodo(index)}
-          deleteTodo={() => deleteTodo(index)}
+          deleteTodo={() => deleteTodo(todo.id)}
         />
       ))}
     </ul>
