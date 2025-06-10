@@ -31,7 +31,7 @@ function App() {
           body: JSON.stringify({ username: 'dwanedunn' }),
         });
       }
-      const apiData = await resp.json();
+      const apiData = await response.json();
       console.log(apiData);
     } catch (error) {
       console.log(error.message);
