@@ -7,7 +7,7 @@ function TodoItem({ todo, toggleTodo, deleteTodo }) {
         style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
         onClick={toggleTodo}
       >
-        {todo.text}
+        {todo.label}
       </span>
       <button onClick={deleteTodo}>Delete</button>
     </li>

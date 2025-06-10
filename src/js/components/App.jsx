@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import TodoList from './TodoList';
-import { resolveConfig } from 'vite';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -33,9 +32,9 @@ function App() {
       }
       const apiData = await response.json();
       console.log(apiData);
+      setTodos(apiData.todos || []);
     } catch (error) {
       console.log(error.message);
-    } finally {
     }
   }
   useEffect(() => {
@@ -49,8 +48,14 @@ function App() {
     setTodos(updatedTodos);
   };
 
-  const deleteTodo = (index) => {
-    setTodos(todos.filter((_, i) => i !== index));
+  ascyn function deleteTodo = (todo_Id) => {
+    const response = await fetch(`https://playground.4geeks.com/todo/users/dwanedunn/todos/${todo_Id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      console.log('Failed to delete todo');
+    }
+    getUserfromApi();
   };
 
   return (
