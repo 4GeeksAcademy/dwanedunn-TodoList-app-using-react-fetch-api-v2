@@ -13,13 +13,23 @@ function App() {
 
   // Fetch the todos from api on load
 
-  async function getApiTodos() {
+  async function getUserfromApi() {
+    // This is the URL to fetch the user data
     const url = `https://playground.4geeks.com/todo/users/dwanedunn`;
     try {
-      const resp = await fetch(url);
+      const response = await fetch(url);
 
-      if (!resp.ok) {
-        throw new Error(`response Status: ${resolveConfig.status}`);
+      // If the API response is not ok, create the username
+      if (!response.ok) {
+        const createUser_URL = `https://playground.4geeks.com/todo/users/dwanedunn`;
+
+        const response = fetch(createUser_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username: 'dwanedunn' }),
+        });
       }
       const apiData = await resp.json();
       console.log(apiData);
@@ -29,7 +39,7 @@ function App() {
     }
   }
   useEffect(() => {
-    getApiTodos();
+    getUserfromApi();
   }, []);
 
   const toggleTodo = (index) => {
