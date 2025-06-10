@@ -58,7 +58,7 @@ function App() {
     if (!response.ok) {
       console.log('Failed to delete todo');
     }
-    getUserfromApi();
+    getUserfromApi;
   }
 
   return (
