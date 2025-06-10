@@ -48,15 +48,18 @@ function App() {
     setTodos(updatedTodos);
   };
 
-  ascyn function deleteTodo = (todo_Id) => {
-    const response = await fetch(`https://playground.4geeks.com/todo/users/dwanedunn/todos/${todo_Id}`, {
-      method: 'DELETE',
-    });
+  async function deleteTodo(todo_Id) {
+    const response = await fetch(
+      `https://playground.4geeks.com/todo/users/dwanedunn/todos/${todo_Id}`,
+      {
+        method: 'DELETE',
+      }
+    );
     if (!response.ok) {
       console.log('Failed to delete todo');
     }
     getUserfromApi();
-  };
+  }
 
   return (
     <div>
