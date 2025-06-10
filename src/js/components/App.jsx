@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 
-function App(){
-    const [todos, SetTodos] = useState([]);
-    const [newTodo, setNewTodo] = useState('');
+export function App() {
+  const [todos, SetTodos] = useState([]);
+  const [newTodo, setNewTodo] = useState('');
 
-    
-export default addTodo = () => {
+  export addTodo = () => {
     if (newTodo.trim()) {
-        SetTodos([...todos, { text: newTodo, completed: false }]);
-        setNewTodo('');
+      SetTodos([...todos, { text: newTodo, completed: false }]);
+      setNewTodo('');
     }
+  };
 }
