@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TodoList from './TodoList';
+import { resolveConfig } from 'vite';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -9,6 +10,25 @@ function App() {
     setTodos([...todos, { text: newTodo, completed: false }]);
     setNewTodo('');
   };
+
+  // Fetch the todos from api on load
+
+  async function getApiTodos() {
+    const url = `https://playground.4geeks.com/todo/users/dwanedunn`;
+    try {
+      const resp = await fetch(url);
+
+      if (!resp.ok) {
+        throw new Error(`response Status: ${resolveConfig.status}`);
+      }
+      const apiData = await resp.json();
+      console.log(apiData);
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+    }
+  }
+  useEffect;
 
   const toggleTodo = (index) => {
     const updatedTodos = todos.map((todo, i) =>
