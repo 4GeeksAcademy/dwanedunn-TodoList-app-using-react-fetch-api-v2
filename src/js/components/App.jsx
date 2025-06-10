@@ -4,6 +4,11 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState('');
 
+  const addTodo = () => {
+    setTodos([...todos, { text: newTodo, completed: false }]);
+    setNewTodo('');
+  };
+
   const toggleTodo = (index) => {
     const updatedTodos = todos.map((todo, i) =>
       i === index ? { ...todo, completed: !todo.completed } : todo
