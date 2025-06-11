@@ -11,17 +11,16 @@ function App() {
 
   // };
 
-// Function to add a new todo item
+  // Function to add a new todo item
   async function addTodo() {
-    const add_Todo_URL = 'https://playground.4geeks.com/todo/todos/dwanedunn';
-      const response = await fetch(add_Todo_URL,{
-        method='POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ label: newTodo, completed: false }),
-       })
-    }
+    const addTodoURL = 'https://playground.4geeks.com/todo/todos/dwanedunn';
+    const response = await fetch(addTodoURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ label: newTodo, is_done: false }),
+    });
 
     const newTodoData = await response.json();
     setTodos([...todos, newTodoData]);
